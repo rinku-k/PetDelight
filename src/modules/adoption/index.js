@@ -9,7 +9,6 @@ import {
 import LinearGradient from 'react-native-linear-gradient';
 import { CARD_CONFIG, CARD_TYPES } from '../../constant';
 import { AdCard } from '../components/adCard';
-import { DefaultTheme } from '@react-navigation/native';
 
 const cardType = CARD_TYPES.ADOPTION;
 
@@ -69,7 +68,6 @@ export const Adoption = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: DefaultTheme.backgroundColor,
     paddingHorizontal: 20,
   },
 });
