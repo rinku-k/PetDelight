@@ -15,27 +15,14 @@ const Stack = createNativeStackNavigator();
 export const Navigator = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
-          name={ROUTES.Splash}
-          component={Splash}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name={ROUTES.Home}
-          component={Home}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name={ROUTES.Carousal}
-          component={Carousal}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name={ROUTES.Adoption}
-          component={Adoption}
-          options={{ title: 'Adoption' }}
-        />
+      <Stack.Navigator
+        screenOptions={{
+          headerShown: false,
+        }}>
+        <Stack.Screen name={ROUTES.Splash} component={Splash} />
+        <Stack.Screen name={ROUTES.Home} component={Home} />
+        <Stack.Screen name={ROUTES.Carousal} component={Carousal} />
+        <Stack.Screen name={ROUTES.Adoption} component={Adoption} />
         <Stack.Screen name={ROUTES.Profile} component={Profile} />
       </Stack.Navigator>
     </NavigationContainer>
