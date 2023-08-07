@@ -1,7 +1,7 @@
 import React from 'react';
 import { FlatList, Text, View } from 'react-native';
 
-let pets = ['🐕', '🐈', '🐦', '🐠', '🐇', '🐁', '🐟', '+'];
+let pets = ['🐕', '🐈', '🐦', '🐥', '🐠', '🐢', '🐇', '🐁', '🐟', '+'];
 
 export const PetList = () => {
   return (

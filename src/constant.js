@@ -4,6 +4,7 @@ export const ROUTES = Object.freeze({
   Profile: 'Profile',
   Home: 'Home',
   Adoption: 'Adoption',
+  PetDetail: 'PetDetail',
 });
 
 export const CARD_TYPES = Object.freeze({

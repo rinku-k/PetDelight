@@ -9,6 +9,7 @@ import { Home } from '../modules/home';
 import { Carousal } from '../modules/login/carousal';
 import { Profile } from '../modules/profile';
 import { Splash } from '../modules/splash';
+import { PetDetail } from '../modules/adoption/detail';
 
 const Stack = createNativeStackNavigator();
 
@@ -23,6 +24,7 @@ export const Navigator = () => {
         <Stack.Screen name={ROUTES.Home} component={Home} />
         <Stack.Screen name={ROUTES.Carousal} component={Carousal} />
         <Stack.Screen name={ROUTES.Adoption} component={Adoption} />
+        <Stack.Screen name={ROUTES.PetDetail} component={PetDetail} />
         <Stack.Screen name={ROUTES.Profile} component={Profile} />
       </Stack.Navigator>
     </NavigationContainer>
