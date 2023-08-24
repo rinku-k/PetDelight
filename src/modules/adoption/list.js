@@ -2,7 +2,6 @@ import React from 'react';
 import {
   Dimensions,
   FlatList,
-  Image,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -12,15 +11,10 @@ import Icon from 'react-native-vector-icons/AntDesign';
 import { PetList } from '../components/petList';
 import { buttonStyles } from '../constants/themes/styles/buttons';
 import { ROUTES } from '../../constant';
+import Animated from 'react-native-reanimated';
+import { adoptUs, helpUs } from '../../data/adoption';
 
 const { width } = Dimensions.get('window');
-
-const helpUs = ['Help the Dog', 'Help the cows', 'Help the birds'];
-const adoptUs = [
-  { name: 'Gary', breed: 'Yorkshire Terrier', age: '3y' },
-  { name: 'Itachi', breed: 'French Bulldog', age: '1y 4m' },
-  { name: 'Samantha', breed: 'Persian Cat', age: '2y' },
-];
 
 const AdoptionCard = ({
   showStar = false,
@@ -28,6 +22,7 @@ const AdoptionCard = ({
   breed,
   age,
   title,
+  id,
   onPress,
 }) => {
   return (
@@ -42,7 +37,8 @@ const AdoptionCard = ({
         elevation: 1,
       }}>
       <View>
-        <Image
+        <Animated.Image
+          sharedTransitionTag={`adopt-${id}`}
           style={{
             height: 120,
             borderRadius: 16,
@@ -53,7 +49,7 @@ const AdoptionCard = ({
           }}
         />
         {showStar && (
-          <View
+          <TouchableOpacity
             style={{
               position: 'absolute',
               top: 10,
@@ -62,7 +58,7 @@ const AdoptionCard = ({
             }}>
             <Icon name="hearto" size={24} color="#5F5B5B" />
             {/* <Icon name="heart" size={24} color="#FF4646" /> */}
-          </View>
+          </TouchableOpacity>
         )}
       </View>
       {title ? (
@@ -126,8 +122,8 @@ export const Adoption = ({ navigation }) => {
     navigation.goBack();
   };
 
-  const onCardPress = () => {
-    navigation.navigate(ROUTES.PetDetail);
+  const onCardPress = id => {
+    navigation.navigate(ROUTES.PetDetail, { id });
   };
 
   return (
@@ -139,7 +135,7 @@ export const Adoption = ({ navigation }) => {
         horizontal
         showsHorizontalScrollIndicator={false}
         renderItem={({ item }) => (
-          <AdoptionCard title={item} onPress={onCardPress} />
+          <AdoptionCard title={item} onPress={() => onCardPress(item.id)} />
         )}
         // estimatedItemSize={200}
       />
@@ -154,7 +150,8 @@ export const Adoption = ({ navigation }) => {
             name={item.name}
             breed={item.breed}
             age={item.age}
-            onPress={onCardPress}
+            id={item.id}
+            onPress={() => onCardPress(item.id)}
           />
         )}
       />

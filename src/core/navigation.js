@@ -4,7 +4,7 @@ import React from 'react';
 
 import { ROUTES } from '../constant';
 
-import { Adoption } from '../modules/adoption';
+import { Adoption } from '../modules/adoption/list';
 import { Home } from '../modules/home';
 import { Carousal } from '../modules/login/carousal';
 import { Profile } from '../modules/profile';
@@ -24,7 +24,11 @@ export const Navigator = () => {
         <Stack.Screen name={ROUTES.Home} component={Home} />
         <Stack.Screen name={ROUTES.Carousal} component={Carousal} />
         <Stack.Screen name={ROUTES.Adoption} component={Adoption} />
-        <Stack.Screen name={ROUTES.PetDetail} component={PetDetail} />
+        <Stack.Screen
+          name={ROUTES.PetDetail}
+          component={PetDetail}
+          screenOptions={{ animation: 'slide_from_bottom' }}
+        />
         <Stack.Screen name={ROUTES.Profile} component={Profile} />
       </Stack.Navigator>
     </NavigationContainer>
